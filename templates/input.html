@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDSS Object Classifier</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #2c3e50; color: #ecf0f1; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background-color: #34495e; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        h1 { text-align: center; }
+        form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        input { padding: 10px; border-radius: 5px; border: none; }
+        button { grid-column: 1 / -1; padding: 10px; background-color: #2980b9; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SDSS Object Classifier 🔭</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="text" name="u" placeholder="u (UV filter mag)" required="required" />
+            <input type="text" name="g" placeholder="g (Green filter mag)" required="required" />
+            <input type="text" name="r" placeholder="r (Red filter mag)" required="required" />
+            <input type="text" name="i" placeholder="i (Near Infrared mag)" required="required" />
+            <input type="text" name="z" placeholder="z (Infrared mag)" required="required" />
+            <input type="text" name="redshift" placeholder="Redshift" required="required" />
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
